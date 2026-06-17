@@ -12,10 +12,6 @@ st.set_page_config(
 # --- CUSTOM CSS ---
 st.markdown("""
     <style>
-    .main {
-        background: linear-gradient(120deg, #f9d423 0%, #ff4e50 100%);
-        color: #fff;
-    }
     .big-title {
         font-size: 3em;
         font-weight: bold;
@@ -76,12 +72,12 @@ st.sidebar.info("1. Let your imagination run wild!\n2. Don't worry about mistake
 st.sidebar.markdown("**Doctor's Corner:**")
 st.sidebar.success("Did you know? The human body has 206 bones! 🦴")
 
-# --- DYNAMIC BACKGROUND COLOR ---
+# --- DYNAMIC BACKGROUND COLOR (WORKS!) ---
 st.markdown(
     f"""
     <style>
-    .main {{
-        background: linear-gradient(135deg, {color} 0%, #fffde4 100%);
+    body {{
+        background: linear-gradient(135deg, {color} 0%, #fffde4 100%) !important;
     }}
     </style>
     """,
