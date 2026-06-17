@@ -53,6 +53,22 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# --- SIDEBAR ---
+st.sidebar.title("🌈 Jovitha's Toolbox")
+color = st.sidebar.color_picker("🎨 Pick your favorite section color!", "#ff80ab")
+st.sidebar.markdown("**Writing Tips:**")
+st.sidebar.info("1. Let your imagination run wild!\n2. Don't worry about mistakes—just write!\n3. Use lots of details and fun words.\n4. Have fun and be yourself!")
+st.sidebar.markdown("**Doctor's Corner:**")
+st.sidebar.success("Did you know? The human body has 206 bones! 🦴")
+
+# --- COLORED MAIN CONTAINER ---
+st.markdown(
+    f"""
+    <div style="background: linear-gradient(135deg, {color} 0%, #fffde4 100%); padding: 2em; border-radius: 15px; margin-bottom:2em;">
+    """,
+    unsafe_allow_html=True
+)
+
 # --- HEADER ---
 st.markdown('<div class="big-title">🌟 Jovitha\'s Colorful Learning & Writing Wonderland! 🌟</div>', unsafe_allow_html=True)
 st.markdown('<div class="award">🏆 Congratulations, Jovitha, on your amazing writing award! 🏆</div>', unsafe_allow_html=True)
@@ -62,26 +78,6 @@ st.image(
     "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80", 
     caption="Let your imagination and knowledge fly!", 
     use_column_width=True
-)
-
-# --- SIDEBAR ---
-st.sidebar.title("🌈 Jovitha's Toolbox")
-color = st.sidebar.color_picker("🎨 Pick your favorite background color!", "#ff80ab")
-st.sidebar.markdown("**Writing Tips:**")
-st.sidebar.info("1. Let your imagination run wild!\n2. Don't worry about mistakes—just write!\n3. Use lots of details and fun words.\n4. Have fun and be yourself!")
-st.sidebar.markdown("**Doctor's Corner:**")
-st.sidebar.success("Did you know? The human body has 206 bones! 🦴")
-
-# --- DYNAMIC BACKGROUND COLOR (WORKS!) ---
-st.markdown(
-    f"""
-    <style>
-    body {{
-        background: linear-gradient(135deg, {color} 0%, #fffde4 100%) !important;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
 )
 
 # --- EDUCATIONAL FACT ---
@@ -209,6 +205,9 @@ if st.button("Check Answer"):
         st.success("Correct! 🎉 You're a genius, Jovitha!")
     else:
         st.error(f"Oops! The correct answer is **{q['answer']}**. Keep learning!")
+
+# --- CLOSE COLORED CONTAINER ---
+st.markdown("</div>", unsafe_allow_html=True)
 
 # --- FOOTER ---
 st.markdown("---")
