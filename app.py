@@ -1,14 +1,15 @@
 import streamlit as st
+from datetime import datetime
 import random
 
-# Set page config
+# --- PAGE CONFIG ---
 st.set_page_config(
     page_title="Jovitha's Colorful Learning & Writing Wonderland 🌈",
     page_icon="🦋",
     layout="centered"
 )
 
-# Custom CSS for extra color and fun
+# --- CUSTOM CSS ---
 st.markdown("""
     <style>
     .main {
@@ -56,23 +57,18 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Main Title
+# --- HEADER ---
 st.markdown('<div class="big-title">🌟 Jovitha\'s Colorful Learning & Writing Wonderland! 🌟</div>', unsafe_allow_html=True)
-
-# Award celebration
 st.markdown('<div class="award">🏆 Congratulations, Jovitha, on your amazing writing award! 🏆</div>', unsafe_allow_html=True)
-
-# Dream to be a doctor
 st.markdown('<div class="doctor-dream">👩‍⚕️ Dream Big: Future Doctor in the Making! 👩‍⚕️</div>', unsafe_allow_html=True)
 
-# Fun image
 st.image(
     "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80", 
     caption="Let your imagination and knowledge fly!", 
     use_column_width=True
 )
 
-# Sidebar: Color picker, Writing Tips, Doctor's Corner
+# --- SIDEBAR ---
 st.sidebar.title("🌈 Jovitha's Toolbox")
 color = st.sidebar.color_picker("🎨 Pick your favorite background color!", "#ff80ab")
 st.sidebar.markdown("**Writing Tips:**")
@@ -80,7 +76,7 @@ st.sidebar.info("1. Let your imagination run wild!\n2. Don't worry about mistake
 st.sidebar.markdown("**Doctor's Corner:**")
 st.sidebar.success("Did you know? The human body has 206 bones! 🦴")
 
-# Apply chosen color to main area
+# --- DYNAMIC BACKGROUND COLOR ---
 st.markdown(
     f"""
     <style>
@@ -92,7 +88,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Educational Fact Box
+# --- EDUCATIONAL FACT ---
 facts = [
     "🧬 **Did you know?** The human brain is sometimes more active when you're asleep than when you're awake!",
     "🩺 **Doctors help people** by diagnosing illnesses and giving treatments to make them feel better.",
@@ -103,7 +99,7 @@ facts = [
 ]
 st.markdown(f'<div class="fact-box">{random.choice(facts)}</div>', unsafe_allow_html=True)
 
-# Education Plan Section
+# --- EDUCATION PLAN ---
 st.header("👩‍⚕️ How to Become a Doctor in Sweden")
 st.markdown("""
 <div class="edu-plan">
@@ -127,7 +123,7 @@ Here's a fun and simple plan for you!<br><br>
 </div>
 """, unsafe_allow_html=True)
 
-# Interactive writing prompt
+# --- WRITING PROMPT ---
 st.header("🦄 Today's Magical Writing Prompt")
 prompt = st.selectbox(
     "Choose a prompt to get started:",
@@ -141,14 +137,43 @@ prompt = st.selectbox(
 )
 st.write(f"**Your prompt:** {prompt}")
 
-# Writing area
+# --- STORY WRITING & TXT DOWNLOAD ---
 st.header("✍️ Start Writing Here!")
+author = st.text_input("Author Name", value="Jovitha")
+story_title = st.text_input("Story Title", value="My Amazing Story")
 story = st.text_area("Let your creativity shine, Jovitha!", height=200)
 
-if st.button("✨ Save My Story"):
-    st.success("Story saved! You're a superstar writer, Jovitha! 🌟")
+now = datetime.now().strftime("%B %d, %Y at %H:%M")
 
-# General Knowledge Quiz
+book_content = f"""
+========================================
+        {story_title.upper()}
+========================================
+
+Author: {author}
+Date: {now}
+
+----------------------------------------
+Prompt:
+{prompt}
+----------------------------------------
+
+Story:
+{story}
+
+========================================
+        THE END
+========================================
+"""
+
+st.download_button(
+    label="📥 Download My Story as a TXT File",
+    data=book_content,
+    file_name=f"{story_title.replace(' ', '_')}.txt",
+    mime="text/plain"
+)
+
+# --- GENERAL KNOWLEDGE QUIZ ---
 st.header("🧠 General Knowledge Quiz Time!")
 
 questions = [
@@ -189,6 +214,6 @@ if st.button("Check Answer"):
     else:
         st.error(f"Oops! The correct answer is **{q['answer']}**. Keep learning!")
 
-# Footer
+# --- FOOTER ---
 st.markdown("---")
 st.markdown("<center>Made with ❤️ for Jovitha, the amazing writer and future doctor! 🦋</center>", unsafe_allow_html=True)
