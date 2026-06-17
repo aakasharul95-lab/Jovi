@@ -74,6 +74,14 @@ st.markdown('<div class="big-title">🌟 Jovitha\'s Colorful Learning & Writing 
 st.markdown('<div class="award">🏆 Congratulations, Jovitha, on your amazing writing award! 🏆</div>', unsafe_allow_html=True)
 st.markdown('<div class="doctor-dream">👩‍⚕️ Dream Big: Future Doctor in the Making! 👩‍⚕️</div>', unsafe_allow_html=True)
 
+# --- FUN IPL MENTION ---
+st.markdown("""
+<div style="text-align:center; font-size:1.2em; margin-bottom:1em;">
+    🏏 <b>Jovitha loves the RCB cricket team!</b> <br>
+    (But everyone knows CSK is the best IPL team! 😉💛)
+</div>
+""", unsafe_allow_html=True)
+
 st.image(
     "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80", 
     caption="Let your imagination and knowledge fly!", 
